@@ -12,7 +12,7 @@ jobs:
         operating-system: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
     - uses: actions/checkout@v2
-    - uses: kheiakiyama/install-azcopy-action@v1.0.2
+    - uses: kheiakiyama/install-azcopy-action@v1
       with: 
         version: 'v10'
         creds: ${{ secrets.AZURE_CREDENTIALS }}
