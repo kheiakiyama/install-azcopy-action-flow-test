@@ -4,6 +4,9 @@ on: # rebuild master branch changes
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: read
 jobs:
   deploy:
     runs-on: ${{ matrix.operating-system }}
