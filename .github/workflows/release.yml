@@ -12,10 +12,15 @@ jobs:
         operating-system: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
     - uses: actions/checkout@v2
+    - name: Azure login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ vars.AZURE_CLIENT_ID }}
+        tenant-id: ${{ vars.AZURE_TENANT_ID }}
+        subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
     - uses: kheiakiyama/install-azcopy-action@v1
       with: 
         version: 'v10'
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - run: |
         azcopy --version | grep 'azcopy'
         azcopy_v10 --version | grep 'azcopy'
